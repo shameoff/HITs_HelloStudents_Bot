@@ -20,11 +20,19 @@ client.once('ready', () => {
 
 
 client.on("guildMemberAdd", async member => {
-	// let student_role = member.guild.roles.cache.find((role) => role.name === "Student")
-	// member.roles.add(student_role)
 	let welcome_channel = member.guild.channels.cache.find((channel) => channel.name === "welcome")
-	welcome_channel.send(`${member}` + (member.guild.name == "972205"? welcomeMessageFor1stGrade : welcomeMessageForFreeTime))
-	console.log("NEW USER!")
+	if (member.guild.name === "972205"){
+		let student_role = member.guild.roles.cache.find((role) => role.name === "Student")
+		member.roles.add(student_role)
+		welcome_channel.send(`${member} ${welcomeMessageFor1stGrade}`)
+		console.log("New Student!")
+	}
+	else if (member.guild.name === "Free Time"){
+		let guest_role = member.guild.roles.cache.find((role) => role.name === "Guest")
+		member.roles.add(guest_role)
+		welcome_channel.send(`${member}  ${welcomeMessageForFreeTime}`)
+		console.log("New Guest!")
+	}
 })
 // Login to Discord with your client's token
 client.login(token);

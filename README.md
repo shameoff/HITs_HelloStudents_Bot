@@ -1,8 +1,9 @@
 # HITs_HelloStudents_Bot
-This bot was created for discord server of Higher IT School TSU for greeting new students there.
+This bot was created for greeting guests and students on discord servers of Higher IT School TSU. When someone enter the server "Free Time" bot will greet him with one message, if someone enter the group server, bot will greet him with another message. 
 
 ## To start the bot
-You need to download nodejs and create .env in directory near to bot.js and create files welcomeTextFor1stGradeServer and welcomeTextForFreeTimeServer here. But I think it would be better to refactor a name of the Hello message text and delete ternary operator at the end of the bot.js.
-
-To run the bot with prepared script write this in the console 
-  `nodejs bot.js`
+1. Download nodejs, npm and dotenv
+2. Create .env in directory near to bot.js
+3. Fill env variables in .env: TOKEN, GROUPSERVER_NAME, WELCOME_MESSAGE_FOR_GROUP_SERVER, FREETIMESERVER_NAME, WELCOME_MESSAGE_FOR_FREETIME_SERVER. 
+4.  `nodejs bot.js`
+5. Fix issues with wrong version of node
